@@ -7,6 +7,7 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
+// show current time
 app.get("/now", (req, res) => {
     res.send(new Date().toISOString());
 });
