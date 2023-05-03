@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <person>
+    <name>Max Muster</name>
+    <age>19</age>
+    <email>max.muster@hotmail.com</email>
+  </person>
+  <person>
+    <name>Walter Black</name>
+    <age>65</age>
+    <email>waltuh.cook@yahoo.com</email>
+  </person>
+</root>
