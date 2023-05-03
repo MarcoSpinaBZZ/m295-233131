@@ -118,6 +118,21 @@ app.get("/me", (req, res) => {
     res.sendFile("/workspaces/m295-233131/experiments/server.json");
 });
 
+// chuck norris API, but name "chuck norris" is changed with name in parameter ?name=
+app.get("/chuck", (req, res) => {
+    let chuck = "Chuck Norris";
+    if (req.query.name) {
+        chuck = req.query.name;
+    }
+    const options = {method: 'GET'};
+
+    fetch('https://api.chucknorris.io/jokes/random', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+});
+
+
 app.listen(port, () => {
     console.log(`Server ist gestartet :`);
 });
