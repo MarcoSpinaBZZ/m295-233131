@@ -51,9 +51,14 @@ app.get("/name", (req, res) => {
     res.send(randomName(namen));
 });
 
-// einen Endpunkt /html, der statische HTML aus einer Datei vom Server zurück gibt
+// static html file
 app.get("/html", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile("/workspaces/m295-233131/express_helloworld/index.html");
+});
+
+//image
+app.get("/image", (req, res) => {
+    res.sendFile("/workspaces/m295-233131/express_helloworld/conan smile gif.gif");
 });
 
 app.listen(port, () => {
