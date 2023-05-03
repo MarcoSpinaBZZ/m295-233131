@@ -54,10 +54,11 @@ let names = [
     "Günther",
   ];
 
-
+// add a name to the list
 app.get("/name", (req, res) => {
     res.sendFile("/workspaces/m295-233131/experiments/name.html")
 });
+
 
 app.post("/names", (req, res) => {
     let name = req.body.name
@@ -65,6 +66,7 @@ app.post("/names", (req, res) => {
     res.send(names);
 });
 
+// delete a name from the list
 app.delete('/name', multer().none(), (req, res) => {
     console.log(req.body.name);
     names = names.filter((name) => name !== req.body.name);
@@ -97,6 +99,14 @@ app.get("/user-agent", (req, res) => {
 app.get("/secret", (req, res) => {
     res.sendStatus(403);
 });
+
+// secret 2
+app.get("/secret2", (req, res) => {
+    const auth = req.get("Authorization")
+    if (auth == "Basic aGFja2VyOjEyMzQ=") {
+    res.sendFile("/workspaces/m295-233131/experiments/name.html");
+    } else {res.sendStatus(401);
+}});
 
 // static xml file
 app.get("/xml", (req, res) => {
