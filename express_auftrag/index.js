@@ -53,12 +53,12 @@ app.get("/name", (req, res) => {
 
 // static html file
 app.get("/html", (req, res) => {
-    res.sendFile("/workspaces/m295-233131/express_helloworld/index.html");
+    res.sendFile("/workspaces/m295-233131/express_auftrag/index.html");
 });
 
 // image
 app.get("/image", (req, res) => {
-    res.sendFile("/workspaces/m295-233131/express_helloworld/conan smile gif.gif");
+    res.sendFile("/workspaces/m295-233131/express_auftrag/conan smile gif.gif");
 });
 
 // teapot
@@ -78,12 +78,12 @@ app.get("/secret", (req, res) => {
 
 // static xml file
 app.get("/xml", (req, res) => {
-    res.sendFile("/workspaces/m295-233131/express_helloworld/index.xml");
+    res.sendFile("/workspaces/m295-233131/express_auftrag/index.xml");
 });
 
 // JSON file
 app.get("/me", (req, res) => {
-    res.sendFile("/workspaces/m295-233131/express_helloworld/index.json");
+    res.sendFile("/workspaces/m295-233131/express_auftrag/index.json");
 });
 
 app.listen(port, () => {
