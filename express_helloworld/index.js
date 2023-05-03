@@ -61,6 +61,17 @@ app.get("/image", (req, res) => {
     res.sendFile("/workspaces/m295-233131/express_helloworld/conan smile gif.gif");
 });
 
+//teapot
+app.get("/teapot", (req, res) => {
+    res.status(418).send("I'm a teapot");
+});
+
+//user-agent
+app.get("/user-agent", (req, res) => {
+    res.send(req.headers["user-agent"]);
+});
+
+
 app.listen(port, () => {
     console.log(`Server ist gestartet :`);
 });
