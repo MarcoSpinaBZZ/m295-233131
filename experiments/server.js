@@ -118,7 +118,7 @@ app.get("/me", (req, res) => {
     res.sendFile("/workspaces/m295-233131/experiments/server.json");
 });
 
-// chuck norris API, but name "chuck norris" is changed with name in parameter ?name=
+// chuck norris API
 app.get("/chuck", (req, res) => {
     let chuck = "Chuck Norris";
     if (req.query.name) {
