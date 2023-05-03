@@ -1,7 +1,13 @@
 import express from "express";
+import cors from "cors";
+import multer from "multer";
 
 const app = express();
 const port = 3000;
+
+app.use(express.urlencoded({extended: true}));
+app.use(cors());
+app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -25,7 +31,7 @@ app.get("/zli", (req, res) => {
 });
 
 // list of names
-const namen = [
+let names = [
     "Fritz",
     "Lambo",
     "Nikola",
@@ -48,15 +54,24 @@ const namen = [
     "Günther",
   ];
 
-function randomName(names) {
-    for (let i = 0; i < 2; i++) {
-        const random = names[Math.floor(Math.random() * names.length)];
-        return random
-    }
-}
+
 app.get("/name", (req, res) => {
-    res.send(randomName(namen));
+    res.sendFile("/workspaces/m295-233131/express_auftrag 2/name.html")
 });
+
+app.post("/names", (req, res) => {
+    let name = req.body.name
+    names.push(name)
+    res.send(names);
+});
+
+app.delete('/name', multer().none(), (req, res) => {
+    console.log(req.body.name);
+    names = names.filter((name) => name !== req.body.name);
+    console.log(names);
+    res.sendStatus(204);
+  });
+
 
 // static html file
 app.get("/html", (req, res) => {
