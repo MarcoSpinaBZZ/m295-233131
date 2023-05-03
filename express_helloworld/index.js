@@ -56,21 +56,35 @@ app.get("/html", (req, res) => {
     res.sendFile("/workspaces/m295-233131/express_helloworld/index.html");
 });
 
-//image
+// image
 app.get("/image", (req, res) => {
     res.sendFile("/workspaces/m295-233131/express_helloworld/conan smile gif.gif");
 });
 
-//teapot
+// teapot
 app.get("/teapot", (req, res) => {
-    res.status(418).send("I'm a teapot");
+    res.sendStatus(418);
 });
 
-//user-agent
+// user-agent
 app.get("/user-agent", (req, res) => {
     res.send(req.headers["user-agent"]);
 });
 
+// secret
+app.get("/secret", (req, res) => {
+    res.sendStatus(403);
+});
+
+// static xml file
+app.get("/xml", (req, res) => {
+    res.sendFile("/workspaces/m295-233131/express_helloworld/index.xml");
+});
+
+// JSON file
+app.get("/me", (req, res) => {
+    res.sendFile("/workspaces/m295-233131/express_helloworld/index.json");
+});
 
 app.listen(port, () => {
     console.log(`Server ist gestartet :`);
