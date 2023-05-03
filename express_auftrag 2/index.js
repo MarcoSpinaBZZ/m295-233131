@@ -7,9 +7,16 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-// show current time
+// show current time with GET and parameter ?tz=
 app.get("/now", (req, res) => {
-    res.send(new Date().toISOString());
+let timezone = "Europe/Zurich";
+
+if (req.query.tz) {
+  timezone = req.query.tz;
+}
+
+let date = new Date().toLocaleString("de-CH", { timeZone: timezone });
+res.send("Current Time in Timezone " + timezone + " " + date);
 });
 
 // show zli website
