@@ -119,17 +119,10 @@ app.get("/me", (req, res) => {
 });
 
 // chuck norris API
-app.get("/chuck", (req, res) => {
-    let chuck = "Chuck Norris";
-    if (req.query.name) {
-        chuck = req.query.name;
-    }
-    const options = {method: 'GET'};
-
-    fetch('https://api.chucknorris.io/jokes/random', options)
+app.get("/chuck", async (req, res) => {
+    await fetch('https://api.chucknorris.io/jokes/random', options)
     .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+    .then(joke => res.send(joke.value.replace("Chuck Norris", req.query.name)));
 });
 
 
