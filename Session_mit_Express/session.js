@@ -11,13 +11,25 @@ app.use(session({
   cookie: {}
 }))
 
-app.get('/', function (request, response, _) {
+app.get('/', function (req, res, _) {
   // request.session is the object that holds the information of this specific session
-  request.session.views = (request.session.views || 0) + 1
+  req.session.views = (req.session.views || 0) + 1
   console.log(request.session)
 
-  response.end(request.session.views + ' views')
+  res.end(req.session.views + ' views')
 })
+
+// enter & save name of session
+app.post("/name", (req, res) => {
+  req.session.name = req.body.name;
+  res.send("Name saved");
+});
+
+// get name of session
+
+
+// delete name of session
+
 
 app.listen(port, () => {
   console.log(`Server ist gestartet :)`);
